@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Storage Demo</title>
+</head>
+
+<body>
+
+    <h2>Session Storage Demo</h2>
+
+    <button onclick="saveData()">Store Value</button>
+    <button onclick="readData()">Read Value</button>
+    <button onclick="removeData()">Remove Value</button>
+    <button onclick="clearData()">Clear Session Storage</button>
+
+    <h3 id="output"></h3>
+
+    <script>
+
+        function saveData() {
+
+            sessionStorage.setItem("username", "admin");
+
+            document.getElementById("output").innerHTML =
+                "Stored: username = admin";
+        }
+
+        function readData() {
+
+            let value = sessionStorage.getItem("username");
+
+            document.getElementById("output").innerHTML =
+                "Read: " + value;
+        }
+
+        function removeData() {
+
+            sessionStorage.removeItem("username");
+
+            document.getElementById("output").innerHTML =
+                "username removed";
+        }
+
+        function clearData() {
+
+            sessionStorage.clear();
+
+            document.getElementById("output").innerHTML =
+                "Session Storage Cleared";
+        }
+
+    </script>
+
+</body>
+
+</html>
