@@ -1,19 +1,25 @@
-name: Cypress Test
+name: Cypress Tests
 
 on:
   push:
+    branches: [ main ]
 
 jobs:
   cypress-run:
+
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
         with:
           node-version: 24
 
-      - run: npm install
+      - name: Install dependencies
+        run: npm ci
 
-      - run: npx cypress run
+      - name: Run Cypress
+        run: npx cypress run
